@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import axios from 'axios';
+import './App.css';
 
 const Form = () => {
  //setting state for form data 
@@ -78,52 +79,53 @@ const submitFunction = (event) => {
             setButtonDisabled(!isValid);
         });
     }, [formData]);
-
     return(
-        <form onSubmit = {submitFunction}>
+        <div className="Div">
+        <form className="Wrapper" onSubmit = {submitFunction}>
             <label htmlFor = "name">
                 Name
                 <input id = "name"
-                       type = "text" 
-                       name = "name"
-                       value = {formData.name}
-                       onChange = {change}
+                    type = "text" 
+                    name = "name"
+                    value = {formData.name}
+                    onChange = {change}
                 />
-              {errors.name.length > 0 ? <p>{errors.name}</p> : null}
+            {errors.name.length > 0 ? <p>{errors.name}</p> : null}
             </label>
             <label htmlFor = "email">
                 Email
                 <input id = "email" 
-                       type = "email" 
-                       name = "email"
-                       value = {formData.email}
-                       onChange = {change}
+                    type = "email" 
+                    name = "email"
+                    value = {formData.email}
+                    onChange = {change}
                 />
                 {errors.email.length > 0 ? <p>{errors.email}</p> : null}
             </label>
             <label htmlFor = "password">
                 Password
                 <input id = "password"
-                       type = "password" 
-                       name = "password"
-                       value = {formData.password}
-                       onChange = {change}
+                    type = "password" 
+                    name = "password"
+                    value = {formData.password}
+                    onChange = {change}
                 />
                 {errors.password.length > 0 ? <p>{errors.password}</p> : null}
             </label>
             <label htmlFor = "terms">
                 Terms of Service
                 <input id = "terms"
-                       type = "checkbox" 
-                       name = "terms"
-                       checked = {formData.terms}
-                       onChange = {change}
+                    type = "checkbox" 
+                    name = "terms"
+                    checked = {formData.terms}
+                    onChange = {change}
                 />
                 {errors.terms.length > 0 ? <p>{errors.terms}</p> : null}
             </label>
             <button disabled = {buttonDisabled} type = "submit">Submit</button>
             <pre>{JSON.stringify(post, null, 2)}</pre>
         </form>
+        </div>
     );
 }
 
