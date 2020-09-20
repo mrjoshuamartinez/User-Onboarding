@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import axios from 'axios';
 
 const Form = () => {
- //setting state for form data
+ //setting state for form data 
 
 const [formData, setFormData] = useState({
     name: '',
